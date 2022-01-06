@@ -1,6 +1,8 @@
+*.pyc
 *.pkl
 *.npy
 results/*
+runs/*g
 *.pt
 *.png
 *.jpg
