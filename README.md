@@ -1,6 +1,6 @@
-# Learned Scale Recovery
+# Tightly Coupled SfM
 
-Accompanying code for 'Self-Supervised Structure from Motion through Tightly-Coupled Depth and Egomotion Networks'
+Accompanying code for 'On the Coupling of Depth and Egomotion Networks for Self-Supervised Structure from Motion'
 
 ## Dependencies:
 * numpy
