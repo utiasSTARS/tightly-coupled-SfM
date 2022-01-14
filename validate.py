@@ -143,16 +143,16 @@ class ResultsLogger():
         self.r_ate_list = []
         self.t_mse_list = []
         self.r_mse_list = []
-        with open(filename, "w") as f:
-            self.writer = csv.writer(f)
-            self.writer.writerow(csv_header1)
-            self.writer.writerow(csv_header2)
+        # with open(filename, "w") as f:
+        #     self.writer = csv.writer(f)
+        #     self.writer.writerow(csv_header1)
+        #     self.writer.writerow(csv_header2)
     
     def log(self, seq, name, t_ate, r_ate, t_mse, r_mse):
         stats_list = [seq, name, t_ate, r_ate, t_mse, r_mse]
-        with open(self.filename, "a") as f:
-            self.writer = csv.writer(f)
-            self.writer.writerow(stats_list)
+        # with open(self.filename, "a") as f:
+        #     self.writer = csv.writer(f)
+        #     self.writer.writerow(stats_list)
             
         self.t_ate_list.append(t_ate)
         self.r_ate_list.append(r_ate)

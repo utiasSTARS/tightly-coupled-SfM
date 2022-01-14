@@ -170,8 +170,6 @@ class Trainer():
 
                 depths = [disp_to_depth(disp[0], self.config['min_depth'], self.config['max_depth'])[1] for disp in disparities]
 
-                # iters = np.random.randint(1,self.config['iterations'] + 1)
-                # poses, poses_inv = solve_pose_iteratively(iters, depths, self.pose_model, target_img_aug, source_img_aug_list, intrinsics_aug)        
                 poses, poses_inv = solve_pose_iteratively(self.config['iterations'], depths, self.pose_model, target_img_aug, source_img_aug_list, intrinsics_aug)
               
                 minibatch_loss=0  

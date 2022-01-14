@@ -2,7 +2,10 @@
 *.pkl
 *.npy
 results/*
-runs/*g
+runs/*
+!paper_plots_and_data/depth_scaling_results/*
+!paper_plots_and_data/frame_skip_exp_results/*
+!paper_plots_and_data/perturbation_exp_results/*
 *.pt
 *.png
 *.jpg
