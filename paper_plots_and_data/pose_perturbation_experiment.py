@@ -17,25 +17,25 @@ from validate import compute_trajectory as tt
 import glob
 
 
-path_to_ws = '/home/brandonwagstaff/tightly-coupled-SfM/' ##update this
-# path_to_ws = '/home/brandon/Desktop/Projects/iterative-optimizable-vo/'s
+path_to_ws = '/home/brandonwagstaff/tightly-coupled-SfM/' ## update this
+path_to_dset_downsized = '/path/to/KITTI-odometry-downsized-stereo/' ## update this
 
 load_from_mat = True #Make True to load paper results rather than recomputing
 dnet_rescaling = True
 post_process_depths = False
+perturb_trans = False  ## add (forward) translation perturbations
+perturb_yaw = True     ## add yaw perturbations
 
-
-perturb_trans = False
-perturb_yaw = True
 trans_perturbation_list = [0, 0.1, 0.25, 0.5, 0.75, 1.0, 1.5] #in meters 
 yaw_perturbation_list = [0, 0.1, 0.25, 0.5, 1, 3, 5]
 
 seq = '09_02'
 
-model_list = ['results/202103292232-kitti-unscaled-1-iter-med-res-less-data', 'results/202103270016-kitti-unscaled-2-iter-med-res-less-data', 'results/202103231952-kitti-unscaled-3-iter-med-res-less-data'] 
+model_list = ['results/kitti-odometry-1-iter-ablation', 
+              'results/kitti-odometry-2-iter-ablation', 
+              'results/kitti-odometry-3-iter-ablation'] 
 model_names = ['1-iter', '2-iter', '3-iter']
 
-path_to_dset_downsized = '/media/datasets/KITTI-odometry-downsized-stereo/'
 plot_axis=[0,2]
 
 results_dir = path_to_ws + 'paper_plots_and_data/perturbation_exp_results/'
@@ -51,7 +51,6 @@ if load_from_mat == False:
         cam_height = 1.65
 
         config = load_obj('{}/config'.format(dir))
-        print(config)
         config['data_dir'] = path_to_dset_downsized+config['img_resolution'] + '_res/' #
         
         config['load_stereo'] = False

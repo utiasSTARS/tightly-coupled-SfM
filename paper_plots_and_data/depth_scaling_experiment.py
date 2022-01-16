@@ -16,31 +16,24 @@ import os
 from validate import compute_trajectory as tt
 import glob
 
-# plt.figure()
-# plt.rc('text', usetex=True)
-# plt.rc('font', family='serif')
-# plt.savefig('test.png')
 
-path_to_ws = '/home/brandonwagstaff/tightly-coupled-SfM/' ##update this
-# path_to_ws = '/home/brandon/Desktop/Projects/iterative-optimizable-vo/'
+path_to_ws = 'path/to/tightly-coupled-SfM/' ##update this
+path_to_dset_downsized = '/media/datasets/KITTI-odometry-downsized-stereo/'
 
-load_from_mat = True #Make True to load paper results rather than recomputing
+load_from_mat = False #Make True to load paper results rather than recomputing
 dnet_rescaling = True
-ransac_rescaling = False
 post_process_depths = False
 scaling_factor_list = [0.7,0.8, 0.9, 1.0, 1.1, 1.2, 1.3]
 
 new_iteration_num = None #None for same # as training
 seq = '09_02'
 
-model_list = ['results/202103292232-kitti-unscaled-1-iter-med-res-less-data', 'results/202103270016-kitti-unscaled-2-iter-med-res-less-data', 'results/202103231952-kitti-unscaled-3-iter-med-res-less-data'] 
+model_list = ['results/kitti-odometry-1-iter-ablation', 
+    'results/kitti-odometry-2-iter-ablation', 
+    'results/kitti-odometry-3-iter-ablation'] 
 model_names = ['1-iter', '2-iter', '3-iter']
 
-
-path_to_dset_downsized = '/media/datasets/KITTI-odometry-downsized-stereo/'
 plot_axis=[0,2]
-plane_dir = 'results/plane-model-kitti-202101072240'
-
 results_dir = path_to_ws + 'paper_plots_and_data/depth_scaling_results'
 os.makedirs(results_dir, exist_ok=True)
 logger_list = [] #where results are stored

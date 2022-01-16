@@ -17,7 +17,8 @@ from validate import compute_trajectory as tt
 import glob
 
 
-path_to_ws = '/home/brandonwagstaff/tightly-coupled-SfM/' ##update this
+path_to_ws = '/path/to/tightly-coupled-SfM/' ##update this
+path_to_dset_downsized = '/path/to/KITTI-odometry-downsized-stereo/' ##update this
 
 load_from_mat = True #Make True to load paper results rather than recomputing
 dnet_rescaling = True
@@ -25,16 +26,16 @@ post_process_depths = False
 frame_skip_list = [0,1,2]
 new_iteration_num = None #None for same # as training
 
-model_list = ['results/202103292232-kitti-unscaled-1-iter-med-res-less-data', 
-              'results/202103270016-kitti-unscaled-2-iter-med-res-less-data',
-              'results/202103231952-kitti-unscaled-3-iter-med-res-less-data',
-              'results/202103252240-kitti-unscaled-4-iter-med-res-less-data',
-              'results/202103252240-kitti-unscaled-4-iter-med-res-less-data']
+model_list = ['results/kitti-odometry-1-iter-ablation', 
+              'results/kitti-odometry-2-iter-ablation',
+              'results/kitti-odometry-3-iter-ablation',
+              'results/kitti-odometry-4-iter',
+              'results/kitti-odometry-4-iter']
 model_names = ['1--1-iter', '2--2-iter', '3--3-iter', '4--4-iter', '4--6-iter']
 iteration_list = [1,2,3,4,6]
 seq = '09_02'
 
-path_to_dset_downsized = '/media/datasets/KITTI-odometry-downsized-stereo/'
+
 plot_axis=[0,2]
 
 results_dir = path_to_ws + 'paper_plots_and_data/frame_skip_exp_results/'
@@ -52,7 +53,6 @@ if load_from_mat == False:
             cam_height = 1.65
             
             config = load_obj('{}/config'.format(dir))
-            print(config)
             config['data_dir'] = path_to_dset_downsized+config['img_resolution'] + '_res/' #
             
             config['load_stereo'] = False

@@ -3,6 +3,7 @@
 *.npy
 results/*
 runs/*
+__pycache__
 !paper_plots_and_data/depth_scaling_results/*
 !paper_plots_and_data/frame_skip_exp_results/*
 !paper_plots_and_data/perturbation_exp_results/*

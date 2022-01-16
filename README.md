@@ -1,6 +1,9 @@
 # Tightly Coupled SfM
 
-Accompanying code for 'On the Coupling of Depth and Egomotion Networks for Self-Supervised Structure from Motion'
+Accompanying code and supplementary material for 'On the Coupling of Depth and Egomotion Networks for Self-Supervised Structure from Motion'
+
+<img src="https://github.com/utiasSTARS/tightly-coupled-SfM/blob/master/data/system_overview.png" width="1100px"/>
+
 
 ## Dependencies:
 * numpy
@@ -12,14 +15,14 @@ Accompanying code for 'On the Coupling of Depth and Egomotion Networks for Self-
 
 # Datasets
 
-We trained and tested on the KITTI dataset. Download the raw dataset (see http://www.cvlibs.net/datasets/kitti/raw_data.php). We provide a dataloader, but we first require that the data be preprocessed. To do so, run `create_kitti_odometry_data.py` within the `data` directory (be sure to specify the source and target directory). For training with the Eigen split, first run `create_kitti_eigen_data.py`. 
+We trained and tested on the KITTI dataset. Download the raw dataset (see [here](http://www.cvlibs.net/datasets/kitti/raw_data.php)). We provide a dataloader, but we first require that the data be preprocessed. To do so, run `create_kitti_odometry_data.py` within the `data` directory (be sure to specify the source and target directory). For training with the Eigen split, first run `create_kitti_eigen_data.py`. 
 
-For ScanNet experiments, reproduction is more challenging due to the amount of data required. If interested, download the data (see https://github.com/ScanNet/ScanNet), and unpack the data (see https://github.com/ScanNet/ScanNet/tree/master/SensReader/c++) prior to running `create_scannet_dataset.py` to preprocess the data. 
+For ScanNet experiments, reproduction is more challenging due to the amount of data required. If interested, download the data (see [here](https://github.com/ScanNet/ScanNet)), and unpack the data (see [here](https://github.com/ScanNet/ScanNet/tree/master/SensReader/c++)) prior to running `create_scannet_dataset.py` to preprocess the data. 
 
 
 # Paper Reproduction
 
-Please download our trained models from https://drive.google.com/drive/folders/1Tkq3PSSwqMLGsgibbt23f2WhO_UUpvOu?usp=sharing and unpack it into the main directory. 
+Please download our trained models from [google drive](https://drive.google.com/drive/folders/1Tkq3PSSwqMLGsgibbt23f2WhO_UUpvOu?usp=sharing) and unpack it into the main directory. 
 
 We provide three trained models: `kitti-odometry-4-iter` is our best odometry model, `kitti-odometry-4-iter` is our best model trained on the Eigen split, and `scannet-4-iter` is our model trained on ScanNet. We provide several scripts to evaluate these models.  In all of these scripts, the path to the main workspace, and to the downloaded datasets must be specified in order to run these scripts.
 
